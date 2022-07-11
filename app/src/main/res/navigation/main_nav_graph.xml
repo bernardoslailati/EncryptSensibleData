@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/RegisterProfileFragment">
+
+    <fragment
+        android:id="@+id/RegisterProfileFragment"
+        android:name="com.slailati.android.encryptuserdata.ui.fragment.RegisterProfileFragment"
+        android:label="@string/register_profile_fragment"
+        tools:layout="@layout/fragment_register_profile">
+
+        <action
+            android:id="@+id/action_register_to_details"
+            app:destination="@id/DetailsProfileFragment"
+            app:popUpTo="@id/RegisterProfileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/DetailsProfileFragment"
+        android:name="com.slailati.android.encryptuserdata.ui.fragment.DetailsProfileFragment"
+        android:label="@string/details_profile_fragment"
+        tools:layout="@layout/fragment_details_profile"/>
+
+</navigation>

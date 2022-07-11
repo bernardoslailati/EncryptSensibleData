@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">EncryptUserData</string>
+    <string name="register_profile_fragment">RegisterProfileFragment</string>
+    <string name="details_profile_fragment">DetailsProfileFragment</string>
+
+
+    <string name="previous">Voltar</string>
+
+    <string name="save_content_description">Salvar dados do usuário</string>
+    <string name="user_profile_title">Preencha o perfil do usuário</string>
+    <string name="saved_profile_encrypted_and_decrypted">Perfil salvo encriptado:\n\n%1$s\n\nPerfil salvo decriptado:\n\n%2$s</string>
+    <string name="password_title">Senha</string>
+    <string name="phone_number_title">Telefone</string>
+    <string name="federal_registration_title">CPF</string>
+    <string name="name_title">Nome</string>
+
+    <string name="saved_profile_success_message">Perfil salvo com sucesso. Deseja ver detalhes?</string>
+    <string name="saved_profile_error_message">Falha ao salvar perfil. Tentar novamente?</string>
+    <string name="action_yes">SIM</string>
+</resources>
