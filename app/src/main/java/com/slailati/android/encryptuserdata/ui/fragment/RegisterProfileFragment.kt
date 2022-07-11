@@ -16,10 +16,10 @@ import com.slailati.android.encryptuserdata.databinding.FragmentRegisterProfileB
 import com.slailati.android.encryptuserdata.ui.Profile
 
 class RegisterProfileFragment : Fragment() {
-
+    
     private var _binding: FragmentRegisterProfileBinding? = null
     private val binding get() = _binding!!
-
+    
     private val encryptedSharedPreferences by lazy {
         EncryptedSharedPreferences.create(
             "secret_shared_prefs",
@@ -29,14 +29,14 @@ class RegisterProfileFragment : Fragment() {
             EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
         )
     }
-
+    
     private fun saveProfile(profile: Profile) {
         encryptedSharedPreferences.edit {
             putString("profile", profile.toString())
             apply()
         }
     }
-
+    
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -44,10 +44,10 @@ class RegisterProfileFragment : Fragment() {
         _binding = FragmentRegisterProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
-
+    
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        
         with(binding) {
             fabSaveProfile.setOnClickListener { _ ->
                 saveProfile(
@@ -58,16 +58,17 @@ class RegisterProfileFragment : Fragment() {
                         tietPassword.text.toString()
                     )
                 )
-                Snackbar.make(view,
+                Snackbar.make(
+                    view,
                     getString(R.string.saved_profile_success_message),
-                    Snackbar.LENGTH_LONG)
-                    .setAction(getString(R.string.action_yes)) {
+                    Snackbar.LENGTH_LONG
+                ).setAction(getString(R.string.action_yes)) {
                         requireView().findNavController().navigate(R.id.action_register_to_details)
                     }.show()
             }
         }
     }
-
+    
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
