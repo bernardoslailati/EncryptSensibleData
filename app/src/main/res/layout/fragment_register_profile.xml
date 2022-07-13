@@ -37,9 +37,9 @@
                 android:id="@+id/tietName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textCapWords"
                 android:fontFamily="@font/montserrat_regular"
-                android:hint="@string/name_title" />
+                android:hint="@string/name_title"
+                android:inputType="textCapWords" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,9 +55,9 @@
                 android:id="@+id/tietFederalRegistration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
                 android:fontFamily="@font/montserrat_regular"
-                android:hint="@string/federal_registration_title" />
+                android:hint="@string/federal_registration_title"
+                android:inputType="number" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,9 +73,9 @@
                 android:id="@+id/tietPhoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone"
                 android:fontFamily="@font/montserrat_regular"
-                android:hint="@string/phone_number_title" />
+                android:hint="@string/phone_number_title"
+                android:inputType="phone" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,9 +92,9 @@
                 android:id="@+id/tietPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
                 android:fontFamily="@font/montserrat_regular"
-                android:hint="@string/password_title" />
+                android:hint="@string/password_title"
+                android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -104,12 +104,24 @@
         android:id="@+id/fabSaveProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:useCompatPadding="true"
         android:contentDescription="@string/save_content_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat"
         app:layout_constraintVertical_bias="1"
-        app:srcCompat="@android:drawable/ic_menu_save" />
+        app:srcCompat="@android:drawable/ic_menu_save"
+        app:useCompatPadding="true" />
+
+    <ProgressBar
+        android:id="@+id/pbLoadingSavingProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayoutCompat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

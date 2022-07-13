@@ -4,32 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.security.crypto.EncryptedSharedPreferences
-import androidx.security.crypto.MasterKeys
 import com.slailati.android.encryptuserdata.R
 import com.slailati.android.encryptuserdata.databinding.FragmentDetailsProfileBinding
-import com.slailati.android.encryptuserdata.ui.Profile
+import com.slailati.android.encryptuserdata.ui.viewmodel.ProfileViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class DetailsProfileFragment : Fragment() {
 
+    private val profileViewModel by sharedViewModel<ProfileViewModel>()
+
     private var _binding: FragmentDetailsProfileBinding? = null
     private val binding get() = _binding!!
-
-    private val encryptedSharedPreferences by lazy {
-        EncryptedSharedPreferences.create(
-            "secret_shared_prefs",
-            MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC),
-            requireActivity(),
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-        )
-    }
-
-    private fun getProfile(): String =
-        encryptedSharedPreferences.getString("profile", "").toString()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,19 +30,29 @@ class DetailsProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        profileViewModel.getDecryptedProfile()
+
         binding.btnBack.setOnClickListener {
             findNavController().navigateUp()
         }
 
-        binding.tvSavedProfileEncryptedAndDecrypted.text = getString(
-            R.string.saved_profile_encrypted_and_decrypted,
-            getProfile(),
-            getProfile()
-        )
+        addObservers()
+    }
+
+    private fun addObservers() {
+        profileViewModel.profile().observe(viewLifecycleOwner) {
+            it?.let {
+                binding.tvSavedDecryptedProfile.text = getString(
+                    R.string.saved_decrypted_profile,
+                    it
+                )
+            }
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }

@@ -1,4 +1,4 @@
-package com.slailati.android.encryptuserdata.ui
+package com.slailati.android.encryptuserdata.data.model
 
 data class Profile(
     val name: String,
