@@ -30,7 +30,7 @@ class DetailsProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        profileViewModel.getDecryptedProfile()
+        profileViewModel.getProfile()
 
         binding.btnBack.setOnClickListener {
             findNavController().navigateUp()
@@ -44,7 +44,7 @@ class DetailsProfileFragment : Fragment() {
             it?.let {
                 binding.tvSavedDecryptedProfile.text = getString(
                     R.string.saved_decrypted_profile,
-                    it
+                    it.toString()
                 )
             }
         }

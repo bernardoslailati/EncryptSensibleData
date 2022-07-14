@@ -1,7 +1,7 @@
-package com.slailati.android.encryptuserdata.domain.repository
+package com.slailati.android.encryptuserdata.data.repository
 
 import com.slailati.android.encryptuserdata.data.model.Profile
-import com.slailati.android.encryptuserdata.domain.datasource.ProfileDataSource
+import com.slailati.android.encryptuserdata.data.datasource.ProfileDataSource
 
 class ProfileRepositoryImpl(
     private val profileDataSource: ProfileDataSource
@@ -11,8 +11,8 @@ class ProfileRepositoryImpl(
         return profileDataSource.saveProfile(profile)
     }
 
-    override suspend fun getDecryptedProfile(): String {
-        return profileDataSource.getDecryptedProfile()
+    override suspend fun getProfile(): Profile {
+        return profileDataSource.getProfile()
     }
 
 }

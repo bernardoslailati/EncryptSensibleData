@@ -1,4 +1,4 @@
-package com.slailati.android.encryptuserdata.domain.datasource
+package com.slailati.android.encryptuserdata.data.datasource
 
 import com.slailati.android.encryptuserdata.data.model.Profile
 
@@ -6,6 +6,6 @@ interface ProfileDataSource {
 
     suspend fun saveProfile(profile: Profile): Boolean
 
-    suspend fun getDecryptedProfile(): String
+    suspend fun getProfile(): Profile
 
 }
