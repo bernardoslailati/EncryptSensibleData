@@ -3,8 +3,8 @@ package com.slailati.android.encryptuserdata.ui.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.slailati.android.encryptuserdata.data.model.Profile
-import com.slailati.android.encryptuserdata.domain.usecase.GetProfileUseCase
-import com.slailati.android.encryptuserdata.domain.usecase.SaveProfileUseCase
+import com.slailati.android.encryptuserdata.domain.interactor.GetProfileUseCase
+import com.slailati.android.encryptuserdata.domain.interactor.SaveProfileUseCase
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch

@@ -8,8 +8,8 @@ import com.slailati.android.encryptuserdata.data.datasource.ProfileDataSource
 import com.slailati.android.encryptuserdata.data.datasource.ProfileDataSourceImpl
 import com.slailati.android.encryptuserdata.data.repository.ProfileRepository
 import com.slailati.android.encryptuserdata.data.repository.ProfileRepositoryImpl
-import com.slailati.android.encryptuserdata.domain.usecase.GetProfileUseCase
-import com.slailati.android.encryptuserdata.domain.usecase.SaveProfileUseCase
+import com.slailati.android.encryptuserdata.domain.interactor.GetProfileUseCase
+import com.slailati.android.encryptuserdata.domain.interactor.SaveProfileUseCase
 import com.slailati.android.encryptuserdata.ui.viewmodel.ProfileViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
