@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 
 class ProfileViewModel(
     private val saveProfileUseCase: SaveProfileUseCase,
-    private val getProfileUseCase: GetProfileUseCase,
+    private val getProfileUseCase: GetProfileUseCase
 ) : BaseViewModel() {
     
     private val _profile: MutableLiveData<Profile> by lazy { MutableLiveData<Profile>() }
