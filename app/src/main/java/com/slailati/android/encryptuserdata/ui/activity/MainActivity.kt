@@ -1,6 +1,8 @@
 package com.slailati.android.encryptuserdata.ui.activity
 
 import android.os.Bundle
+import android.util.Base64
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.navigation.findNavController
@@ -25,9 +27,23 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        val firstAPIKey = String(Base64.decode(firstAPIKey(), Base64.DEFAULT))
+        Log.d("miojo", "onResume: $firstAPIKey -- ${firstAPIKey()}")
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
+    }
+
+    private external fun firstAPIKey(): String
+    companion object {
+        init {
+            System.loadLibrary("encryptuserdata")
+        }
     }
 }
